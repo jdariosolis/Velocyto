@@ -1,0 +1,12 @@
+# Sort using samtools before running the velocyto command.
+# Most of the velocyto pipeline is single threaded and several instances can be run on the same multicore machine to process your samples in a time effective way. 
+# However, because of the above mentioned multithreaded call to samtools sort, running several instances of veloctyo run might end up using the memory and 
+# cpu of your system and possibly result in runtime errors. Therefore for batch jobs we suggest to first call samtools sort sequentially and only then 
+# running velocyto
+
+# samtools sort -t CB -O BAM -o [output_file_name.bam] [input_file_name.bam]
+samtools sort -t CB -O BAM -o cellsorted_possorted_genome_bam.bam possorted_genome_bam.bam
+
+# Make sure you are in the appropriate folder, otherwise specify the right path to the possorted_genome_bam.bam file.
+# Running this command might take up tp 2-4 hrs, as it will create temporary files that will be merged at the end of the sorting. For this to be successful, make sure that 
+# you have enough space in your disk (at least 100 Gb, 200 Gb to be on the safe side).
