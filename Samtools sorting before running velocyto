@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Sort using samtools before running the velocyto command.
 # Most of the velocyto pipeline is single threaded and several instances can be run on the same multicore machine to process your samples in a time effective way. 
 # However, because of the above mentioned multithreaded call to samtools sort, running several instances of veloctyo run might end up using the memory and 
