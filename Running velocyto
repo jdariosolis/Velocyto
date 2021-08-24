@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# After you have successfully sorted your file, run the following command, with some annotations:
+# 1. Make sure to include the barcodes (decompressed, use gzip -d [barcode file name], as running velocyto without including the barcodes 
+# would result in the counter using all the cell barcodes it encounters. It might result in long runtimes, 
+# large memory allocations and big output matrix.
+
+# 2. I would suggest to create a folder where the output will go, and specify it as the output in the velocyto command with -o
+mkdir outputloomfolder
+
+# 3. Even if you have sorted with samtools before, input has to be possorted_genome_bam.bam, not cellsorted_possorted_genome_bam.bam. 
+# The pipeline needs the original file, and is clever and lazy enough as to locate and use the sorted one even without specifying the name 
+
+
+velocyto run -b filtered_feature_bc_matrix/barcodes.tsv -o outputloomfolder/ -m repeat_msk_srt.gtf possorted_genome_bam.bam gencode.vM17.annotation.gtf
+
+# Press ENTER and enjoy!
