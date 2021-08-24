@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# 1. Attach a volume.
+# > Go to ScienceCloud
+# > Go to Volumes
+# > Manage Attachments and put it in your instance
+# 2. Mount the volume to your instance
+sudo mount /dev/vdb /mnt
+# 3. Your instance has a volume attached now
+# 4. Detach volume
+# > Before detaching the volume from the VM, it has to be unmounted
+sudo umount /mnt
+# Detach from ScienceCloud
