@@ -1,0 +1,35 @@
+#!/bin/sh
+#1. Login to the instance
+
+#ssh -i ~/id.rsa ubuntu@[your-instance-ip-address]
+
+# 2. Fix ssh keyfor user becherlab, create .ssh folder for becherlab user, if it doesn't exist. Enforce, if necessary, with the sudo command
+
+#cd ../
+# 2.1 You should be in the home directory now
+
+#sudo mkdir -p /home/becherlab/.ssh
+
+# 3. Copy authorized keys from ubuntu user to becherlab user
+
+#sudo cp /home/ubuntu/.ssh/authorized_keys /home/becherlab/.ssh/authorized_keys
+
+# 4. Change folder owner recursively
+
+#sudo chown -R becherlab:becherlab /home/becherlab/.ssh
+
+# 5. Set correct permissions on folder
+
+#sudo chmod 700 /home/becherlab/.ssh
+
+# 6. Set correct permissions on public key file
+
+#sudo chmod 600 /home/becherlab/.ssh/authorized_keys
+
+# 7. Logout from the instance
+
+#exit
+
+# 8. Enter with becherlab user
+
+#ssh -i ~/id.rsa becherlab@[your-instance-ip-address]
