@@ -9,6 +9,11 @@
 # samtools sort -t CB -O BAM -o [output_file_name.bam] [input_file_name.bam]
 samtools sort -t CB -O BAM -o cellsorted_possorted_genome_bam.bam possorted_genome_bam.bam
 
+# If permission is denied, then try:
+sudo samtools sort -t CB -O BAM -o cellsorted_possorted_genome_bam.bam possorted_genome_bam.bam
+
+
+
 # Make sure you are in the appropriate folder, otherwise specify the right path to the possorted_genome_bam.bam file.
 # Running this command might take up tp 2-4 hrs, as it will create temporary files that will be merged at the end of the sorting. For this to be successful, make sure that 
 # you have enough space in your disk (at least 100 Gb, 200 Gb to be on the safe side).
